@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html >
+<html ng-app="bims">
   <head>
     <meta charset="UTF-8">
     <title>BIMS: Login</title>
     <link rel="icon" type="image/png" href="img/logo.png" />
     <link href="extlib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
+    <script src="extlib/angular/angular.min.js"></script>
+    <script src="extlib/angular/ui-bootstrap-tpls-0.14.0.js"></script>
+    <script src="js/main.js"></script>
   </head>
-  <body>
+  <body ng-controller="loginController as login">
     <div class="wrapper">
-      <form class="form-signin" action="index.html">       
+      <form class="form-signin">       
         <h2 class="form-signin-heading">Please login</h2>
-        <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
-        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+        <input type="text" ng-model="login.username"class="form-control" name="username" placeholder="Username" required="" autofocus="" />
+        <input type="password" ng-model="login.password" class="form-control" name="password" placeholder="Password" required=""/>      
         <label class="checkbox">
           <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login.login()">Login</button>   
       </form>
     </div>
   </body>
